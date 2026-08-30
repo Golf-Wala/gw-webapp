@@ -98,12 +98,15 @@ export default function MyBookings() {
 						>
 							<div className="space-y-1">
 								<div className="flex flex-wrap items-center gap-2">
-									<span
-										className="size-2 shrink-0 rounded-full"
-										style={{ backgroundColor: booking.bookingType.color }}
-									/>
+									{booking.bookingType && (
+										<span
+											className="size-2 shrink-0 rounded-full"
+											style={{ backgroundColor: booking.bookingType.color }}
+										/>
+									)}
 									<p className="font-medium text-[#0E241B]">
-										{booking.bookingType.name} · {booking.bay.name}
+										{booking.bookingType?.name ?? "Deleted session type"} ·{" "}
+										{booking.bay?.name ?? "Deleted bay"}
 									</p>
 									<Badge
 										variant={
@@ -150,9 +153,10 @@ export default function MyBookings() {
 						<AlertDialogDescription>
 							{bookingToCancel && (
 								<>
-									This will cancel your {bookingToCancel.bookingType.name}{" "}
-									session on {formatDateTime(bookingToCancel.startTime)}.
-									This action cannot be undone.
+									This will cancel your{" "}
+									{bookingToCancel.bookingType?.name ?? ""} session on{" "}
+									{formatDateTime(bookingToCancel.startTime)}. This action
+									cannot be undone.
 								</>
 							)}
 						</AlertDialogDescription>

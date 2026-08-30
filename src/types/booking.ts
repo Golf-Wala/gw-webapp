@@ -23,8 +23,9 @@ export interface AvailabilityResponse {
 
 export interface Booking {
 	_id: string;
-	bay: { _id: string; name: string };
-	bookingType: { _id: string; name: string; color: string };
+	// null when the referenced bay/booking type has since been deleted
+	bay: { _id: string; name: string } | null;
+	bookingType: { _id: string; name: string; color: string } | null;
 	startTime: string;
 	endTime: string;
 	durationMinutes: number;
