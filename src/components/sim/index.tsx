@@ -1,4 +1,5 @@
-const CALENDLY_URL = "https://calendly.com/golfwala/simulator"; // TODO: swap for real Calendly link
+import { Link } from "react-router-dom";
+import { useSeo } from "@/lib/use-seo";
 
 const FEATURES = [
 	{
@@ -28,6 +29,13 @@ const FEATURES = [
 ];
 
 export default function SimPage() {
+	useSeo({
+		title: "Indoor Golf Simulator Bays | Golf Wala – Webb City, MO",
+		description:
+			"Book time on our indoor golf simulator for practice, lessons, or a full 18 holes on world-class courses. Real ball data, dozens of courses, open 7 days in Webb City, MO.",
+		path: "/sim",
+	});
+
 	return (
 		<div className="bg-[#F3EEE0] text-[#152018]">
 			{/* HERO */}
@@ -60,18 +68,16 @@ export default function SimPage() {
 						shine, any time of year.
 					</p>
 
-					<div className="mt-9 flex flex-wrap gap-3.5">
-						<a
-							href={CALENDLY_URL}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2.5 rounded-sm bg-[#C6A24D] px-6 py-3.5 text-sm font-medium text-[#0E241B] transition-colors hover:bg-[#d8b562]"
+					<div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap">
+						<Link
+							to="/book"
+							className="inline-flex items-center justify-center gap-2.5 rounded-sm bg-[#C6A24D] px-6 py-3.5 text-sm font-medium text-[#0E241B] transition-colors hover:bg-[#d8b562]"
 						>
 							Book the Simulator
-						</a>
+						</Link>
 						<a
 							href="tel:4176696399"
-							className="inline-flex items-center gap-2.5 rounded-sm border border-[#FBF8F0]/30 px-6 py-3.5 text-sm font-medium text-[#FBF8F0] transition-colors hover:border-[#C6A24D] hover:text-[#C6A24D]"
+							className="inline-flex items-center justify-center gap-2.5 rounded-sm border border-[#FBF8F0]/30 px-6 py-3.5 text-sm font-medium text-[#FBF8F0] transition-colors hover:border-[#C6A24D] hover:text-[#C6A24D]"
 						>
 							Call the shop
 						</a>
@@ -121,14 +127,12 @@ export default function SimPage() {
 						</div>
 					</div>
 
-					<a
-						href={CALENDLY_URL}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="inline-flex items-center gap-2.5 rounded-sm bg-[#C6A24D] px-6 py-3.5 text-sm font-medium text-[#0E241B] transition-colors hover:bg-[#d8b562]"
+					<Link
+						to="/book"
+						className="inline-flex items-center justify-center gap-2.5 rounded-sm bg-[#C6A24D] px-6 py-3.5 text-sm font-medium text-[#0E241B] transition-colors hover:bg-[#d8b562]"
 					>
 						Book the Simulator
-					</a>
+					</Link>
 				</div>
 			</section>
 		</div>

@@ -16,21 +16,16 @@ const services = [
 			"Fairway wood reshafting",
 			"Hybrid reshafting",
 			"Iron reshafting",
-			"Steel shaft installation",
-			"Graphite shaft installation",
-			"Shaft replacement",
-			"Shaft shortening",
-			"Shaft extensions",
-			"Adapter installation and replacement",
-			"Tip weight installation",
+			"Steel and graphite shaft installation",
+			"Shaft shortening and extensions",
+			"Adapter and tip weight installation",
 			"Ferrule replacement",
 		],
 	},
 	{
 		title: "Loft & Lie Adjustments",
 		items: [
-			"Loft adjustments",
-			"Lie angle adjustments",
+			"Loft and lie adjustments",
 			"Loft and lie evaluation",
 			"Full bag loft and lie gapping",
 			"Iron loft and lie optimization",
@@ -40,10 +35,8 @@ const services = [
 		title: "Club Specifications",
 		items: [
 			"Club length measurement",
-			"Swing weight measurement",
-			"Swing weight adjustments",
-			"Spec verification",
-			"Iron spec checks",
+			"Swing weight measurement and adjustments",
+			"Spec and iron spec verification",
 			"Full club inspection",
 		],
 	},
@@ -60,12 +53,9 @@ const services = [
 		title: "Club Customization",
 		items: [
 			"Custom ferrule installation",
-			"Paint fill restoration",
-			"Custom paint fill colors",
-			"Wedge stamping",
-			"Wedge paint fill",
-			"Rust removal and cleanup",
-			"Club restoration",
+			"Paint fill restoration and custom colors",
+			"Wedge stamping and paint fill",
+			"Rust removal and club restoration",
 			"Cosmetic refinishing",
 		],
 	},
@@ -73,11 +63,8 @@ const services = [
 		title: "Club Fitting & Performance",
 		items: [
 			"Loft gapping analysis",
-			"Club spec matching",
-			"Equipment recommendations",
-			"Shaft recommendations",
-			"Grip fitting",
-			"Length fitting",
+			"Club spec and shaft matching",
+			"Grip and length fitting",
 			"Swing weight optimization",
 		],
 	},
@@ -87,39 +74,36 @@ const services = [
 			"Club performance diagnostics",
 			"Loose head repairs",
 			"Rattle removal",
-			"General club repairs",
-			"Custom repair solutions",
+			"General and custom repairs",
 		],
 	},
 ];
 
 export default function Services() {
 	return (
-		<section className="p-5 md:p-10 space-y-4">
-			<p className="font-mono uppercase text-[#C6A24D] font-thin text-sm">
-				What we do
-			</p>
-
-			<h2 className="text-4xl font-semibold font-serif max-w-150">
-				Club repair & services — done in the shop, not shipped out.
-			</h2>
-
-			<p className="font-light text-lg">
-				From a quick regrip to a full custom build, our techs handle it
-				on-site so your clubs aren't gone for weeks.
-			</p>
-
-			<div className="border-t border-l border-[#C6A24D]">
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-					{services.map((service, index) => (
-						<Card
-							key={index}
-							number={(index + 1).toString().padStart(2, "0")}
-							title={service.title}
-							items={service.items}
-						/>
-					))}
+		<section className="mx-auto max-w-295 px-8 py-24">
+			<div className="mb-14 max-w-xl">
+				<div className="mb-5 font-mono text-[13px] uppercase tracking-[0.14em] text-[#9c8248]">
+					What we do
 				</div>
+				<h2 className="font-serif text-[32px] font-semibold leading-tight text-[#0E241B] md:text-[38px]">
+					Club repair &amp; services, done in the shop.
+				</h2>
+				<p className="mt-4 text-base leading-relaxed text-[#4a5a4f]">
+					From a quick regrip to a full custom build, our techs
+					handle it on-site so your clubs aren't gone for weeks.
+				</p>
+			</div>
+
+			<div className="grid grid-cols-1 gap-px border border-[#C6A24D]/35 bg-[#C6A24D]/35 md:grid-cols-2 lg:grid-cols-4">
+				{services.map((service, index) => (
+					<Card
+						key={service.title}
+						number={(index + 1).toString().padStart(2, "0")}
+						title={service.title}
+						items={service.items}
+					/>
+				))}
 			</div>
 		</section>
 	);
@@ -135,16 +119,19 @@ function Card({
 	items: string[];
 }) {
 	return (
-		<div className="border-r border-b border-[#C6A24D] p-6 aspect-square flex flex-col">
-			<p className="text-[#C6A24D] font-mono font-thin text-sm">
-				{number}
-			</p>
+		<div className="flex flex-col bg-[#FBF8F0] p-8">
+			<p className="font-mono text-xs text-[#C6A24D]">{number}</p>
 
-			<h3 className="font-serif font-semibold text-xl mt-4">{title}</h3>
+			<h3 className="mt-4 font-serif text-lg font-semibold text-[#0E241B]">
+				{title}
+			</h3>
 
-			<ul className="mt-4 list-disc list-inside space-y-1 text-sm font-light flex-1">
-				{items.map((item, index) => (
-					<li key={index}>{item}</li>
+			<ul className="mt-4 flex-1 space-y-2 text-sm leading-relaxed text-[#586b5d]">
+				{items.map((item) => (
+					<li key={item} className="flex gap-2">
+						<span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#C6A24D]/60" />
+						{item}
+					</li>
 				))}
 			</ul>
 		</div>
